@@ -47,8 +47,10 @@ for (let index = 0; index < gameChildren.length; index++) {
                 console.log(true);
 
 for (let index = 0; index < ids.length; index++) {
-    document.querySelector(`[id='${ids[index]}']`).innerHTML = `<img src="${document.querySelector(`[id='${ids[index]}']`).children[0].style.backgroundImage}" alt="dog">`
-
+    document.querySelector(`[id='${ids[index]}']`).children[0].style.backgroundImage = document.querySelector(`[id='${ids[index]}']`).children[1].style.backgroundImage
+    document.querySelector(`[id='${ids[index]}']`).disabled = true;
+    document.querySelector(`[id='${ids[index]}']`).children[0].disabled = true;
+    document.querySelector(`[id='${ids[index]}']`).children[1].disabled = true;
 }
 points += 1
 console.log(element);
@@ -89,6 +91,6 @@ if (points == dogs.length/2) {
 function timer() {
     interval = setInterval(() => {
         time += 1
-        document.querySelector('#time').innerHTML = "Tid: " + time
+        document.querySelector('#time').innerHTML = "Tid: " + time + "s"
     }, 1000);
 }
