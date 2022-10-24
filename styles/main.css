@@ -1,15 +1,18 @@
-h2:hover {
-  font-size: 55px;
-  background-color: blue;
-  -webkit-backface-visibility: visible;
-          backface-visibility: visible;
-  transform: rotateX(180deg);
+#gameSec {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100vh;
+  width: 50vw;
 }
-
-h2 {
-  font-size: 55px;
-  background-color: blue;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  transform: rotateX(0deg);
+#gameSec .front {
+  height: 25vh;
+  width: 10vw;
+  background-color: red;
+  background-size: cover;
+}
+#gameSec .back {
+  display: none;
+  height: 25vh;
+  width: 10vw;
+  background-size: cover;
 }/*# sourceMappingURL=main.css.map */
