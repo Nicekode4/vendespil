@@ -10,8 +10,11 @@ let count = 0;
 let points = 0;
 let compare = []
 let ids = []
-let time = 0;
+let time = 100;
+let date = new Date(time * 1000);
+let minutes = "0" + date.getMinutes();
 
+let seconds = "0" + date.getSeconds();
 dogs.forEach(element => {
     dogs.push(element)
 });
@@ -39,19 +42,17 @@ for (let index = 0; index < gameChildren.length; index++) {
         if (ids[0] === ids[1]) {
             compare = []
             ids = []
-            count = 0
+            count = 1
         }else{
                    compare.push(element.children[1].style.backgroundImage)
         if (count === 2) {
             if (compare[0] == compare[1]) {
+            
                 console.log(true);
 
 for (let index = 0; index < ids.length; index++) {
-    document.querySelector(`[id='${ids[index]}']`).children[0].style.backgroundImage = document.querySelector(`[id='${ids[index]}']`).children[1].style.backgroundImage
-    document.querySelector(`[id='${ids[index]}']`).disabled = true;
-    document.querySelector(`[id='${ids[index]}']`).children[0].disabled = true;
-    document.querySelector(`[id='${ids[index]}']`).children[1].disabled = true;
-}
+     document.querySelector(`[id='${ids[index]}']`).children[0].style.backgroundImage = document.querySelector(`[id='${ids[index]}']`).children[1].style.backgroundImage
+ }
 points += 1
 console.log(element);
 document.querySelector('#points').innerHTML = "Points: " + points;
@@ -69,7 +70,6 @@ if (points == dogs.length/2) {
                 element.lastElementChild.style.display = "none"
                 
             }
-
         }else{
             count += 1
             
@@ -87,10 +87,14 @@ if (points == dogs.length/2) {
 
     })
 }
+// Minutes part from the timestamp
 
 function timer() {
     interval = setInterval(() => {
+        minutes = "0" + date.getMinutes();
+    seconds = "0" + date.getSeconds();
+        date = new Date(time * 1000);
         time += 1
-        document.querySelector('#time').innerHTML = "Tid: " + time + "s"
+        document.querySelector('#time').innerHTML = "Tid: " + minutes.substr(-2) + " Min " + seconds.substr(-2) + " Sec";
     }, 1000);
 }
