@@ -70,7 +70,6 @@ function flip() {
                 compare.forEach(element => {
                     element.classList.toggle('back2')
                     element.parentElement.children[0].classList.toggle('back')
-                    element.parentElement.style.pointerEvents = "auto";
                     
                 });
             }
