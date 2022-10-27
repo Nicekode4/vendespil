@@ -1,12 +1,15 @@
 html{
-    
+  
 }
 #gameSec{
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
    height: 100vh;
    width: 50vw;
+
+   article{
    .front{
+      display: block;
       height: 25vh;
       width: 10vw;
       background-color: red;
@@ -14,8 +17,25 @@ html{
    }
    .back{
       display: none;
+      backface-visibility: visible;
+      transform: rotatey(0deg);
       height: 25vh;
       width: 10vw;
       background-size: cover;
    }
+   .back2{
+      display: block;
+      backface-visibility: visible;
+      transform: rotatey(180deg);
+      height: 25vh;
+      width: 10vw;
+      background-size: cover;
+   }
+   .disable{
+      color: white;
+      pointer-events: none;
+      opacity: 0.4; 
+   }
+   
+}
 }

@@ -4,15 +4,33 @@
   height: 100vh;
   width: 50vw;
 }
-#gameSec .front {
+#gameSec article .front {
+  display: block;
   height: 25vh;
   width: 10vw;
   background-color: red;
   background-size: cover;
 }
-#gameSec .back {
+#gameSec article .back {
   display: none;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  transform: rotatey(0deg);
   height: 25vh;
   width: 10vw;
   background-size: cover;
+}
+#gameSec article .back2 {
+  display: block;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  transform: rotatey(180deg);
+  height: 25vh;
+  width: 10vw;
+  background-size: cover;
+}
+#gameSec article .disable {
+  color: white;
+  pointer-events: none;
+  opacity: 0.4;
 }/*# sourceMappingURL=main.css.map */
