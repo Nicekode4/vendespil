@@ -3,89 +3,113 @@ let dogs = [
     "assets/lonely-pug.jpg",
     "assets/shih-tzu.jpg",
     "assets/terrier.jpg",
+    "assets/spaniel.jpg",
+    "assets/golden.jpg",
 ]
+let newDogs = []
 const game = document.querySelector('#gameSec')
-const gameChildren = document.querySelector('#gameSec').children
 let count = 0;
 let points = 0;
 let compare = []
-let ids = []
-let time = 100;
+let time = 0;
+numberOfPairs = 3
 let date = new Date(time * 1000);
 let minutes = "0" + date.getMinutes();
-
 let seconds = "0" + date.getSeconds();
-dogs.forEach(element => {
-    dogs.push(element)
-});
 
-function MakeBoard() {
-    document.querySelector('#points').innerHTML = "Points: " + points
-    for (let index = 0; index < dogs.length; index++) {
-game.innerHTML += `<article id="${index}">
-<div class="front">front</div>
-<div class="back" style="background-image: url(${dogs[index]})">back</div>
-</article>`    
-    
-}
-}
-MakeBoard()
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+  }
 
-console.log(gameChildren[0]);
+console.log();
+
+function makeBoard() {
+    for (let index = 0; index < 2; index++) {
+        for (let index = 0; index < numberOfPairs; index++) {
+            const element = dogs[index];
+            newDogs.push(element)
+        }
+    }
+    shuffle(newDogs)
+    newDogs.forEach(element => {
+    game.innerHTML += `    
+    <article id="${count += 1}">
+    <div class="front"></div>
+    <div class="back" style="background-image: url(${element});"></div>
+    </article>`  
+     
+    });
+    count = 0; 
+    flip()
+    console.log();
+}
+makeBoard()
 timer()
-for (let index = 0; index < gameChildren.length; index++) {
-    const element = gameChildren[index];
-    
-    element.addEventListener('click', function () {
-        
-        ids.push(element.id)
-        if (ids[0] === ids[1]) {
-            compare = []
-            ids = []
-            count = 1
-        }else{
-                   compare.push(element.children[1].style.backgroundImage)
-        if (count === 2) {
-            if (compare[0] == compare[1]) {
+function flip() {
+    document.querySelectorAll('article').forEach(element => {
+        element.addEventListener('click', function compareing(){
+            compare.push(element.children[1])
+            console.log(compare[0]);
+            element.children[0].classList.toggle('back')
+            element.children[1].classList.toggle('back2')
+            element.children[1].style.pointerEvents = "none";
+            element.style.pointerEvents = "none";
             
-                console.log(true);
-
-for (let index = 0; index < ids.length; index++) {
-     document.querySelector(`[id='${ids[index]}']`).children[0].style.backgroundImage = document.querySelector(`[id='${ids[index]}']`).children[1].style.backgroundImage
- }
-points += 1
-console.log(element);
-document.querySelector('#points').innerHTML = "Points: " + points;
-if (points == dogs.length/2) {
-   alert("You won") 
-   clearInterval(interval)
-}
-            }
-            compare = []
-            ids = []
-            count = 0
-            for (let index = 0; index < gameChildren.length; index++) {
-                const element = gameChildren[index];
-                element.firstElementChild.style.display = "block"
-                element.lastElementChild.style.display = "none"
-                
-            }
-        }else{
+            
+            
             count += 1
+            //obj.removeEventListener('click', compareing)
             
-                              if (element.lastElementChild.style.display == "block") {
-            element.firstElementChild.style.display = "block"
-            element.lastElementChild.style.display = "none"
-        }else{
-                  element.firstElementChild.style.display = "none"
-      element.lastElementChild.style.display = "block"
-        }  
+            if (count == 2) {
+                
+ 
+            if (compare[1].style.backgroundImage === compare[0].style.backgroundImage) {
+                console.log(true);
+                point() 
+                for (let index = 0; index < 2; index++) {
+                    const element = compare[index];
+                    
+                    element.parentElement.style.pointerEvents = "none";
+
+                    
+                    
+                    
+        
+                } 
+                           if (points === numberOfPairs) {
+                alert("DU vandt!")
+                clearInterval(interval)
+            }
+               
+                compare = []
+                count = 0
+            }else{
+                setTimeout(() => {
+                                  console.log(false);
+                compare.forEach(element => {
+                    element.classList.toggle('back2')
+                    element.parentElement.children[0].classList.toggle('back')
+                    element.style.pointerEvents = "auto";
+                    element.parentElement.style.pointerEvents = "auto";
+                    
+                });  
+                compare = []
+                count = 0
+                }, 500);
+
+            }
         }
-        }
+        })
+        
+    });
+    
+}
 
 
 
-    })
+function point() {
+    points += 1
+    document.querySelector('#points').innerHTML = "Points: " + points
 }
 // Minutes part from the timestamp
 
