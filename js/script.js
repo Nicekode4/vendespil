@@ -79,7 +79,6 @@ function flip() {
         
                 } 
                            if (points === numberOfPairs) {
-                alert("Du vandt!")
                 clearInterval(interval)
             }
                
@@ -123,6 +122,11 @@ function timer() {
     seconds = "0" + date.getSeconds();
         date = new Date(time * 1000);
         time += 1
-        document.querySelector('#time').innerHTML = "Tid: " + minutes.substr(-2) + " Min " + seconds.substr(-2) + " Sec";
+        document.querySelector('#time').innerHTML = "Tid: " + minutes.substr(-2) + " Min " + seconds.substr(-2) + " Sek";
     }, 1000);
+}
+
+function newGame() {
+location.reload()
+
 }
