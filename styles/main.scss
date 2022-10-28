@@ -1,35 +1,45 @@
 html{
-  
+  background-image: url('../assets/pexels-fox-212324.jpg');
+  background-size: cover;
+  color: black;
+  text-align: center;
 }
 #gameSec{
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   height: 100vh;
-   width: 50vw;
+margin-top: 20vh;
+   margin-left: 22vw;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   height: 25vh;
+   width: 25vh;
 
    article{
+      margin-right: 5vh;
+      margin-bottom: 5vh;
    .front{
       display: block;
       height: 25vh;
-      width: 10vw;
-      background-color: red;
-      background-size: cover;
+      width: 25vh;
+      background-image: url('../assets/dog-logo.jpg');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
    }
    .back{
       display: none;
       backface-visibility: visible;
       transform: rotatey(0deg);
       height: 25vh;
-      width: 10vw;
-      background-size: cover;
+      width: 25vh;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
    }
    .back2{
       display: block;
       backface-visibility: visible;
       transform: rotatey(180deg);
       height: 25vh;
-      width: 10vw;
-      background-size: cover;
+      width: 25vh;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
    }
    .disable{
       color: white;
