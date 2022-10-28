@@ -12,7 +12,9 @@ let count = 0;
 let points = 0;
 let compare = []
 let time = 0;
-numberOfPairs = 3
+let numberOfPairs = 4
+let tries = 0
+const triesH2 = document.querySelector('#tries')
 let date = new Date(time * 1000);
 let minutes = "0" + date.getMinutes();
 let seconds = "0" + date.getSeconds();
@@ -77,7 +79,7 @@ function flip() {
         
                 } 
                            if (points === numberOfPairs) {
-                alert("DU vandt!")
+                alert("Du vandt!")
                 clearInterval(interval)
             }
                
@@ -98,6 +100,8 @@ function flip() {
                 }, 500);
 
             }
+            tries += 1
+            triesH2.innerHTML = "Træk: " + tries
         }
         })
         
