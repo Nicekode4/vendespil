@@ -9,7 +9,7 @@ html{
 margin-top: 20vh;
    margin-left: 22vw;
    grid-template-columns: 1fr 1fr 1fr 1fr;
-   height: 25vh;
+   height: 30vh;
    width: 25vh;
 
    article{
@@ -17,29 +17,32 @@ margin-top: 20vh;
       margin-bottom: 5vh;
    .front{
       display: block;
-      height: 25vh;
+      height: 30vh;
       width: 25vh;
       background-image: url('../assets/dog-logo.jpg');
       background-size: 100% 100%;
       background-repeat: no-repeat;
+      border-radius: 50px;
    }
    .back{
       display: none;
       backface-visibility: visible;
       transform: rotatey(0deg);
-      height: 25vh;
+      height: 30vh;
       width: 25vh;
       background-size: 100% 100%;
       background-repeat: no-repeat;
+      border-radius: 50px;
    }
    .back2{
       display: block;
       backface-visibility: visible;
       transform: rotatey(180deg);
-      height: 25vh;
+      height: 30vh;
       width: 25vh;
       background-size: 100% 100%;
       background-repeat: no-repeat;
+      border-radius: 50px;
    }
    .disable{
       color: white;
