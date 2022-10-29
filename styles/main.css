@@ -7,20 +7,20 @@ html {
 
 #gameSec {
   display: grid;
+  justify-content: center;
+  grid-gap: 5vh;
   margin-top: 10vh;
-  margin-left: 21vw;
+  margin-left: 23vh;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  height: 30vh;
-  width: 25vh;
+  width: 75%;
 }
 #gameSec article {
-  margin-right: 5vh;
-  margin-bottom: 5vh;
+  padding: 0;
+  margin: 0;
 }
 #gameSec article .front {
   display: block;
   height: 30vh;
-  width: 25vh;
   background-image: url("../assets/dog-logo.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -32,7 +32,6 @@ html {
           backface-visibility: visible;
   transform: rotatey(0deg);
   height: 30vh;
-  width: 25vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 50px;
@@ -43,7 +42,6 @@ html {
           backface-visibility: visible;
   transform: rotatey(180deg);
   height: 30vh;
-  width: 25vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   border-radius: 50px;
