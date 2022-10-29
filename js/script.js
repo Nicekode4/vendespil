@@ -36,8 +36,8 @@ function makeBoard() {
     newDogs.forEach(element => {
     game.innerHTML += `    
     <article id="${count += 1}">
-    <div class="front"></div>
-    <div class="back" style="background-image: url(${element});"></div>
+    <div class="front bubbly-button"></div>
+    <div class="back">Drik!</div>
     </article>`  
      
     });
@@ -50,64 +50,28 @@ timer()
 function flip() {
     document.querySelectorAll('article').forEach(element => {
         element.addEventListener('click', function compareing(){
+            randomNumber = Math.round(Math.random() * 2)
             compare.push(element.children[1])
-            console.log(compare[0]);
+            
+            if (randomNumber < 1) {
+                 setTimeout(() => {
             element.children[0].classList.toggle('back')
             element.children[1].classList.toggle('back2')
             element.children[1].style.pointerEvents = "none";
             element.style.pointerEvents = "none";
-            
-            
-            
-            count += 1
-            //obj.removeEventListener('click', compareing)
-            
-            if (count == 2) {
-                
- 
-            if (compare[1].style.backgroundImage === compare[0].style.backgroundImage) {
-                console.log(true);
-                point() 
-                for (let index = 0; index < 2; index++) {
-                    const element = compare[index];
-                    
-                    element.parentElement.style.pointerEvents = "none";
-
-                    
-                    
-                    
-        
-                } 
-                           if (points === numberOfPairs) {
-                clearInterval(interval)
-            }
-               
-                compare = []
-                count = 0
+           }, 500);
             }else{
-                setTimeout(() => {
-                                  console.log(false);
-                compare.forEach(element => {
-                    element.classList.toggle('back2')
-                    element.parentElement.children[0].classList.toggle('back')
-                    element.style.pointerEvents = "auto";
-                    element.parentElement.style.pointerEvents = "auto";
-                    
-                });  
-                compare = []
-                count = 0
-                }, 500);
-
+                element.children[1].style.pointerEvents = "none";
+                element.style.pointerEvents = "none";  
             }
-            tries += 1
-            triesH2.innerHTML = "Træk: " + tries
-        }
-        })
+            
+          
+            
         
     });
     
 }
-
+)}
 
 
 function point() {
